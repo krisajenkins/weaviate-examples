@@ -15,9 +15,11 @@ def convert_images_to_base64():
     img_path = "./flask-app/static/img/"
 
     for file_path in os.listdir(img_path): # grabbing the images in the images folder and converting them to base64
+        print(".", end="", flush=True)
         if ".DS_Store" not in file_path:
             filename = file_path.split("/")[-1]
             os.system("cat " + img_path + file_path + " | base64 > base64_images/" + filename + ".b64")
+    print()
 
 clear_base64_images()
 convert_images_to_base64()
